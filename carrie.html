@@ -242,87 +242,50 @@ input,textarea{font-family:inherit;}
 }
 .fit-tip strong{color:var(--coral);}
 
-/* English - TED 逐句精读 */
-.ted-article{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
-.ted-header{
-  background:linear-gradient(135deg,var(--coral),var(--coral-deep));
-  color:#fff;padding:22px 18px 18px;position:relative;
+/* English */
+.eng-section{margin-bottom:22px;}
+.eng-quote{
+  background:linear-gradient(135deg,#2A1810,#3D2418);
+  color:#fff;border-radius:var(--radius);
+  padding:20px 18px;margin-bottom:14px;
+  position:relative;overflow:hidden;
 }
-.ted-header .ted-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;opacity:.8;font-weight:600;}
-.ted-header h3{margin:6px 0 4px;font-size:20px;font-weight:900;line-height:1.3;font-family:'Playfair Display',serif;}
-.ted-header .ted-speaker{font-size:13px;opacity:.9;display:flex;align-items:center;gap:6px;}
-.ted-header .ted-meta{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
-.ted-header .ted-badge{font-size:10px;padding:3px 10px;border-radius:99px;background:rgba(255,255,255,.2);font-weight:600;}
-.ted-controls{
-  display:flex;align-items:center;gap:8px;
-  padding:10px 14px;background:var(--cream);
-  border-bottom:1px solid var(--line);
+.eng-quote::before{
+  content:'"';position:absolute;top:-30px;right:10px;
+  font-family:'Playfair Display',serif;font-size:120px;
+  color:rgba(255,255,255,.08);font-weight:900;
 }
-.ted-controls .ctrl-btn{
-  flex:1;display:flex;align-items:center;justify-content:center;gap:5px;
-  padding:8px;border-radius:8px;font-size:12px;font-weight:600;
-  border:none;cursor:pointer;transition:all .2s;
+.eng-quote .en{font-size:18px;font-weight:700;line-height:1.4;font-family:'Playfair Display',serif;font-style:italic;}
+.eng-quote .zh{font-size:13px;opacity:.75;margin-top:8px;}
+.eng-quote .meta{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:11px;opacity:.6;}
+.eng-audio{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.1);
+  padding:8px 12px;border-radius:99px;
 }
-.ted-play-all{background:var(--coral);color:#fff;}
-.ted-play-all.playing{background:var(--ink);}
-.ted-prev-btn{background:#fff;color:var(--ink-soft);border:1px solid var(--line)!important;flex:0 0 40px;}
-.ted-next-btn{background:#fff;color:var(--ink-soft);border:1px solid var(--line)!important;flex:0 0 40px;}
-.ted-sentences{padding:8px 0;}
-.ted-sentence{
-  padding:14px 18px;border-bottom:1px solid var(--line);
-  cursor:pointer;transition:background .25s;position:relative;
-}
-.ted-sentence:last-child{border-bottom:none;}
-.ted-sentence.active{background:linear-gradient(90deg,rgba(255,122,89,.08),transparent);}
-.ted-sentence.active::before{
-  content:'';position:absolute;left:0;top:14px;bottom:14px;width:3px;
-  background:var(--coral);border-radius:0 3px 3px 0;
-}
-.ted-sent-top{display:flex;align-items:flex-start;gap:10px;margin-bottom:6px;}
-.ted-sent-num{
-  width:22px;height:22px;border-radius:50%;flex-shrink:0;
-  background:var(--cream-deep);color:var(--coral);
-  font-size:11px;font-weight:700;
+.play-btn{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--coral);color:#fff;
   display:flex;align-items:center;justify-content:center;
-  margin-top:2px;
+  flex-shrink:0;
 }
-.ted-sentence.active .ted-sent-num{background:var(--coral);color:#fff;}
-.ted-sent-en{
-  flex:1;font-size:16px;line-height:1.55;font-weight:500;
-  color:var(--ink);font-family:'Playfair Display',serif;
+.play-btn svg{width:14px;height:14px;}
+.eng-audio .label{font-size:11px;opacity:.85;}
+
+.eng-scene{padding:14px;}
+.eng-scene .scene-title{font-weight:700;font-size:14px;margin-bottom:8px;}
+.eng-scene .scene-desc{font-size:12px;color:var(--ink-soft);margin-bottom:12px;line-height:1.5;}
+.scene-difficulty{display:inline-block;font-size:10px;padding:2px 8px;border-radius:4px;font-weight:600;margin-left:6px;}
+.diff-easy{background:#E5F4EC;color:var(--green);}
+.diff-mid{background:#FFF4E0;color:var(--gold);}
+.diff-hard{background:#FCE5E5;color:var(--red);}
+
+.eng-card-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 14px;border-bottom:1px solid var(--line);
 }
-.ted-sent-zh{
-  font-size:13px;color:var(--ink-soft);line-height:1.6;
-  padding-left:32px;opacity:0;max-height:0;overflow:hidden;
-  transition:all .3s ease;
-}
-.ted-sentence.show-zh .ted-sent-zh{opacity:1;max-height:100px;padding-top:4px;}
-.ted-sent-actions{
-  display:flex;gap:12px;padding-left:32px;margin-top:8px;
-}
-.ted-sent-actions button{
-  font-size:11px;color:var(--gray);display:flex;align-items:center;gap:3px;
-  background:none;border:none;cursor:pointer;padding:0;font-family:inherit;
-}
-.ted-sent-actions button:active{color:var(--coral);}
-.ted-sent-actions .playing-icon{color:var(--coral);font-weight:600;}
-.ted-footer{
-  padding:14px 18px;background:var(--cream);
-  display:flex;justify-content:space-between;align-items:center;
-}
-.ted-footer .ted-hint{font-size:11px;color:var(--gray);}
-.ted-switch-btn{
-  font-size:12px;font-weight:600;color:var(--coral);
-  background:none;border:none;cursor:pointer;padding:6px 14px;
-  border-radius:99px;border:1px solid var(--coral)!important;
-}
-.ted-progress{
-  height:3px;background:var(--line);position:relative;overflow:hidden;
-}
-.ted-progress-bar{
-  height:100%;background:var(--coral);width:0%;
-  transition:width .3s ease;
-}
+.eng-card-header h3{margin:0;font-size:14px;font-weight:700;}
+.eng-card-header .more{font-size:11px;color:var(--coral);}
 
 .read-controls{
   display:flex;align-items:center;gap:8px;
@@ -432,10 +395,14 @@ input,textarea{font-family:inherit;}
   <!-- View: 英语 -->
   <section class="view" id="view-eng">
     <div class="section-title">
-      <h2>每日 TED 精读</h2>
-      <span class="tag" id="tedDateTag">逐句跟读</span>
+      <h2>英语口语训练</h2>
+      <span class="tag">真人原声 · 跟读</span>
     </div>
-    <div id="tedContainer"></div>
+    <div class="eng-section">
+      <div class="eng-quote" id="dailyQuote"></div>
+    </div>
+    <div class="eng-section" id="listeningList"></div>
+    <div class="eng-section" id="movieList"></div>
   </section>
 
   <!-- View: 跨境要闻 -->
@@ -630,92 +597,70 @@ const fitTips = {
   4:'<strong>爬坡日要点</strong>：心率维持在 130-150 区间,燃脂效率最高。坡度比速度更重要。结束后拉伸别偷懒,改善恢复。'
 };
 
-// TED 精读文章数据
-const tedArticles = [
+// 英语口语
+// 1. 每日金句:点击跳转真人原声视频
+const dailyQuotes = [
+  {en:"The early bird catches the worm, but the second mouse gets the cheese.", zh:"早起的鸟儿有虫吃,但第二只老鼠才能吃到奶酪。", cat:'谚语', level:'B1', audio:'audio/q1.mp3', source:'真人朗读'},
+  {en:"I'd rather regret the things I've done than the things I haven't.", zh:"我宁愿为我做过的事后悔,也不愿为没做的事遗憾。", cat:'名言', level:'B2', audio:'audio/q2.mp3', source:'真人朗读'},
+  {en:"Actions speak louder than words, but sometimes words are the action.", zh:"行动胜于言辞,但有时言辞本身就是行动。", cat:'谚语', level:'B2', audio:'audio/q3.mp3', source:'真人朗读'},
+  {en:"The only way to do great work is to love what you do.", zh:"成就伟大的事业的唯一方法是热爱你所做的事。", cat:'励志', level:'B1', audio:'audio/q4.mp3', source:'真人朗读'},
+  {en:"Life is what happens when you're busy making other plans.", zh:"生活就是你忙于制定其他计划时所发生的事。", cat:'名言', level:'B2', audio:'audio/q5.mp3', source:'真人朗读'},
+  {en:"Don't count the days, make the days count.", zh:"不要数日子,要让日子有意义。", cat:'励志', level:'A2', audio:'audio/q6.mp3', source:'真人朗读'},
+  {en:"Success is not final, failure is not fatal: it is the courage to continue that counts.", zh:"成功不是终点,失败也不是终结,继续前进的勇气才最重要。", cat:'名言', level:'B2', audio:'audio/q7.mp3', source:'真人朗读'}
+];
+
+// 2. 每日英语听力:真人原声音频/视频,点击播放原声,点击显示中文
+const listeningList = [
   {
-    id:'jobs', title:'Your time is limited',
-    speaker:'Steve Jobs', event:'Stanford 2005', level:'B2',
-    sentences:[
-      {en:"Your time is limited, so don't waste it living someone else's life.", zh:"你的时间是有限的，所以不要浪费时间去过别人的生活。"},
-      {en:"Don't be trapped by dogma, which is living with the results of other people's thinking.", zh:"不要被教条所束缚——那是活在别人思考的结果中。"},
-      {en:"Don't let the noise of others' opinions drown out your own inner voice.", zh:"不要让别人意见的噪音淹没了你内心的声音。"},
-      {en:"And most important, have the courage to follow your heart and intuition.", zh:"最重要的是，要有勇气跟随你的内心和直觉。"},
-      {en:"They somehow already know what you truly want to become.", zh:"它们似乎已经知道你真正想成为什么样的人。"},
-      {en:"Everything else is secondary.", zh:"其他一切都是次要的。"}
-    ]
+    title:'机场登机广播',
+    en:"Attention please. Flight CA981 to Los Angeles is now boarding at Gate 23. Passengers in rows 30 through 50, please proceed to the gate with your boarding pass and identification. Thank you.",
+    zh:"请注意。飞往洛杉矶的 CA981 航班现在 23 号登机口登机。30 到 50 排的乘客,请携带登机牌和身份证件前往登机口。谢谢。",
+    level:'B1', cat:'机场广播',
+    audio:'audio/l1.mp3'
   },
   {
-    id:'brown', title:'The power of vulnerability',
-    speaker:'Brené Brown', event:'TEDxHouston 2010', level:'B2',
-    sentences:[
-      {en:"Connection is why we're here.", zh:"连接是我们存在的意义。"},
-      {en:"It's what gives purpose and meaning to our lives.", zh:"它赋予了我们生活的目的和意义。"},
-      {en:"Vulnerability is not weakness.", zh:"脆弱不是软弱。"},
-      {en:"It's our greatest measure of courage.", zh:"它是我们衡量勇气的最大标准。"},
-      {en:"To love with our whole hearts, even though there's no guarantee, is the only way to live.", zh:"全心全意地去爱，即使没有保证——这是唯一的生活方式。"},
-      {en:"We are hardwired for connection, and without it, we suffer.", zh:"我们天生就需要连接，没有它，我们就会痛苦。"}
-    ]
+    title:'咖啡店点单对话',
+    en:"Barista: Hi, what can I get for you today? Customer: I'll have a medium latte with oat milk, please. Barista: Sure, anything else? Customer: No, that's all. How much is it? Barista: That'll be 5 dollars 50.",
+    zh:"咖啡师:你好,今天要点什么? 顾客:我要一杯中杯燕奶拿铁。 咖啡师:好的,还要别的吗? 顾客:不用了,就这些。多少钱? 咖啡师:一共 5 美元 50 美分。",
+    level:'A2', cat:'日常对话',
+    audio:'audio/l2.mp3'
   },
   {
-    id:'duckworth', title:'Grit: The power of passion',
-    speaker:'Angela Lee Duckworth', event:'TED 2013', level:'B1',
-    sentences:[
-      {en:"Grit is passion and perseverance for very long-term goals.", zh:"坚毅是对长期目标的激情和坚持。"},
-      {en:"It's living life like it's a marathon, not a sprint.", zh:"它是把生活当作马拉松，而不是短跑。"},
-      {en:"Talent is important, but effort counts twice.", zh:"天赋很重要，但努力的作用是双倍的。"},
-      {en:"When you combine talent with effort, you get skill.", zh:"当你把天赋和努力结合起来，你就获得了技能。"},
-      {en:"And when you apply that skill with more effort, you achieve.", zh:"当你把更多的努力应用到那种技能上，你就取得了成就。"},
-      {en:"Grit can grow over time, and that is good news.", zh:"坚毅可以随着时间增长——这是个好消息。"}
-    ]
+    title:'天气预报播报',
+    en:"Good morning. Here's the weather forecast for today. We're expecting partly cloudy skies in the morning, with a high of 25 degrees Celsius. There's a chance of scattered showers in the afternoon, so don't forget your umbrella.",
+    zh:"早上好。这是今天的天气预报。上午多云转晴,最高气温 25 摄氏度。下午可能有零星阵雨,别忘了带伞。",
+    level:'B1', cat:'新闻播报',
+    audio:'audio/l3.mp3'
   },
   {
-    id:'sinek', title:'Start with why',
-    speaker:'Simon Sinek', event:'TEDxPuget Sound 2009', level:'B2',
-    sentences:[
-      {en:"People don't buy what you do, they buy why you do it.", zh:"人们不买你做什么——他们买你为什么做。"},
-      {en:"The goal is not to do business with everybody who needs what you have.", zh:"目标不是和所有需要你产品的人做生意。"},
-      {en:"The goal is to do business with people who believe what you believe.", zh:"目标是和那些相信你所相信的人做生意。"},
-      {en:"Inspired leaders think, act, and communicate from the inside out.", zh:"有感染力的领导者从内而外地思考、行动和沟通。"},
-      {en:"If you talk about what you believe, you will attract those who believe what you believe.", zh:"如果你谈论你所相信的，你会吸引那些和你有相同信念的人。"},
-      {en:"Trust is not a checklist of policies and procedures.", zh:"信任不是政策和程序的清单。"}
-    ]
+    title:'商务电话开场',
+    en:"Hello, this is Sarah Chen from Global Tech. May I speak to Mr. Johnson please? I'm calling regarding the quarterly report we discussed last week. It should only take a few minutes of his time.",
+    zh:"你好,我是 Global Tech 的 Sarah Chen。请问 Johnson 先生在吗?我打电话是为了我们上周讨论的季度报告。只需要占用他几分钟时间。",
+    level:'B2', cat:'商务场景',
+    audio:'audio/l4.mp3'
   },
   {
-    id:'cuddy', title:'Your body language shapes who you are',
-    speaker:'Amy Cuddy', event:'TED 2012', level:'B2',
-    sentences:[
-      {en:"Our bodies change our minds, and our minds change our behavior.", zh:"我们的身体改变我们的心态，而我们的心态改变我们的行为。"},
-      {en:"And our behavior changes our outcomes.", zh:"而我们的行为改变我们的结果。"},
-      {en:"Don't fake it till you make it, fake it till you become it.", zh:"不要假装直到成功——要假装直到你真正成为那样。"},
-      {en:"Small tweaks can lead to big changes in your life.", zh:"微小的调整可以给你的生活带来巨大的改变。"},
-      {en:"Before you go into a stressful situation, take two minutes to power pose.", zh:"在你进入压力情境之前，花两分钟做一个有力量的姿势。"},
-      {en:"The most powerful thing you can do is to be present.", zh:"你能做的最有力的事情就是活在当下。"}
-    ]
+    title:'餐厅服务员对话',
+    en:"Waiter: Good evening, welcome to Bella Vista. Do you have a reservation? Customer: Yes, under the name Wang, for two at 7 o'clock. Waiter: Perfect, right this way please. Here are your menus. Can I start you off with something to drink?",
+    zh:"服务员:晚上好,欢迎光临 Bella Vista。请问有预约吗? 顾客:有的,姓王,7 点两位。 服务员:好的,这边请。这是菜单。先来点喝的吗?",
+    level:'A2', cat:'日常对话',
+    audio:'audio/l5.mp3'
   },
   {
-    id:'grant', title:'The surprising habits of original thinkers',
-    speaker:'Adam Grant', event:'TED 2016', level:'B2',
-    sentences:[
-      {en:"Originals are people who take the initiative to make their visions a reality.", zh:"创想家是那些主动将愿景变成现实的人。"},
-      {en:"They are quick to start but slow to finish.", zh:"他们开始得很快，但完成得很慢。"},
-      {en:"Procrastination can be a vice for productivity, but a virtue for creativity.", zh:"拖延对生产力来说是恶习，但对创造力来说是美德。"},
-      {en:"The greatest originals are the ones who fail the most, because they try the most.", zh:"最伟大的创想家是失败最多的人——因为他们尝试得最多。"},
-      {en:"You need a lot of bad ideas in order to get a few good ones.", zh:"你需要很多糟糕的想法，才能得到几个好的。"},
-      {en:"Being original is about taking action, not just having ideas.", zh:"成为创想家是关于采取行动，而不仅仅是有想法。"}
-    ]
-  },
-  {
-    id:'angelo', title:'On living fully',
-    speaker:'Maya Angelou', event:'TED 2013', level:'B1',
-    sentences:[
-      {en:"I've learned that people will forget what you said.", zh:"我学到人们会忘记你说过什么。"},
-      {en:"People will forget what you did.", zh:"人们会忘记你做过什么。"},
-      {en:"But people will never forget how you made them feel.", zh:"但人们永远不会忘记你让他们感受到什么。"},
-      {en:"Life is short, and it is up to us to make it sweet.", zh:"生命短暂——让它变得甜蜜取决于我们。"},
-      {en:"When you learn, teach, when you get, give.", zh:"当你学习时去教导；当你获得时去给予。"},
-      {en:"We may encounter many defeats, but we must not be defeated.", zh:"我们可能会遇到很多挫折，但我们绝不能被打败。"}
-    ]
+    title:'BBC 新闻简讯',
+    en:"In today's headlines: A major technology company has announced plans to invest 2 billion dollars in renewable energy over the next five years. The move is expected to create more than 10,000 new jobs across the country.",
+    zh:"今日头条:一家大型科技公司宣布计划在未来五年内投资 20 亿美元发展可再生能源。此举预计将在全国创造超过 1 万个新就业岗位。",
+    level:'B2', cat:'新闻播报',
+    audio:'audio/l6.mp3'
   }
+];
+
+// 3. 影视片段跟读:真实电影/美剧原声对话
+const movieList = [
+  {title:'《老友记》经典片段跟读', desc:'美剧 Friends 经典桥段,地道美式口语,适合影子跟读训练。', level:'B1', url:'https://www.bilibili.com/video/BV1Axgk6QEwP/'},
+  {title:'《绝望主妇》配音跟读', desc:'美式发音教科书级素材,语速适中,适合跟读模仿。', level:'B1', url:'https://search.bilibili.com/all?keyword=绝望主妇+跟读'},
+  {title:'《摩登家庭》情景对话', desc:'日常生活场景对话,涵盖家庭、学校、工作多场景。', level:'B2', url:'https://search.bilibili.com/all?keyword=摩登家庭+英语'},
+  {title:'《王冠》英式发音跟读', desc:'纯正英式英语,适合想学英伦腔的学习者。', level:'B2', url:'https://search.bilibili.com/all?keyword=王冠+英式英语'}
 ];
 
 /* ============== 工具 ============== */
@@ -863,221 +808,95 @@ function renderFitness(){
   });
 }
 
-// TED 精读
-let tedIdx = 0; // 当前文章索引
-let tedSentIdx = -1; // 当前播放句子
-let tedPlaying = false; // 是否正在连续播放
-
-function getTedArticle(){
-  return tedArticles[tedIdx % tedArticles.length];
-}
-
+// 英语
+let quoteIdx = 0;
 function renderEnglish(){
-  const a = getTedArticle();
-  const today = new Date();
-  const dateStr = `${today.getMonth()+1}月${today.getDate()}日 · 第 ${tedIdx+1} 篇`;
-  $('#tedDateTag').textContent = dateStr;
-
-  $('#tedContainer').innerHTML = `
-    <div class="ted-article">
-      <div class="ted-header">
-        <div class="ted-label">TED Talk · Daily Pick</div>
-        <h3>${a.title}</h3>
-        <div class="ted-speaker">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          ${a.speaker} · ${a.event}
-        </div>
-        <div class="ted-meta">
-          <span class="ted-badge">难度 ${a.level}</span>
-          <span class="ted-badge">${a.sentences.length} 句</span>
-          <span class="ted-badge">真人原声朗读</span>
-        </div>
-      </div>
-      <div class="ted-controls">
-        <button class="ctrl-btn ted-prev-btn" onclick="tedSwitch(-1)" title="上一篇">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="ctrl-btn ted-play-all" id="tedPlayAll" onclick="tedPlayAll()">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          <span id="tedPlayAllLabel">连续朗读全文</span>
-        </button>
-        <button class="ctrl-btn ted-next-btn" onclick="tedSwitch(1)" title="下一篇">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-      <div class="ted-progress"><div class="ted-progress-bar" id="tedProgressBar"></div></div>
-      <div class="ted-sentences">
-        ${a.sentences.map((s, i) => `
-          <div class="ted-sentence" id="ted-sent-${i}" onclick="tedClickSentence(${i})">
-            <div class="ted-sent-top">
-              <div class="ted-sent-num">${i + 1}</div>
-              <div class="ted-sent-en">${s.en}</div>
-            </div>
-            <div class="ted-sent-zh">${s.zh}</div>
-            <div class="ted-sent-actions">
-              <button onclick="event.stopPropagation();tedPlayOne(${i});" title="播放这句">
-                <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                <span id="ted-play-label-${i}">朗读</span>
-              </button>
-              <button onclick="event.stopPropagation();tedToggleZh(${i});" title="显示/隐藏中文">
-                <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                <span id="ted-zh-label-${i}">中文</span>
-              </button>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-      <div class="ted-footer">
-        <span class="ted-hint">点击句子朗读 · 点击中文显示翻译</span>
-        <button class="ted-switch-btn" onclick="tedSwitch(1)">换一篇 →</button>
-      </div>
+  // 每日金句:点击跳转真人原声视频
+  const q = dailyQuotes[quoteIdx % dailyQuotes.length];
+  $('#dailyQuote').innerHTML = `
+    <div class="en">${q.en}</div>
+    <div class="zh">${q.zh}</div>
+    <div class="meta">
+      <button onclick="playAudio('audio-player','${q.audio}');toast('🔊 正在播放真人原声...');" style="color:#FFB394;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:4px;background:transparent;border:none;cursor:pointer;padding:0;font-family:inherit;font-size:inherit;">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        听真人原声
+      </button>
+      <span>${q.source} · ${q.level}</span>
     </div>
+  `;
+
+  // 每日英语听力:点击听真人原声 + 点击显示中文
+  $('#listeningList').innerHTML = `
+    <div class="section-title" style="margin-top:6px">
+      <h2 style="font-size:16px">每日英语听力</h2>
+      <span class="tag">${listeningList.length} 篇 · 真人原声</span>
+    </div>
+    ${listeningList.map((l,i)=>`
+      <div class="card" style="padding:14px;margin-bottom:12px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+          <div style="font-weight:700;font-size:14px;">${l.title}<span class="scene-difficulty diff-${l.level==='A2'?'easy':(l.level==='B1'?'mid':'hard')}">${l.level}</span></div>
+          <span style="font-size:10px;color:var(--gray);">${l.cat}</span>
+        </div>
+        <div id="listen-en-${i}" style="font-size:14px;line-height:1.7;color:var(--ink);margin-bottom:10px;font-family:'Playfair Display',serif;font-style:italic;">${l.en}</div>
+        <div id="listen-zh-${i}" style="display:none;font-size:13px;line-height:1.7;color:var(--ink-soft);background:var(--cream);padding:10px 12px;border-radius:8px;margin-bottom:10px;">${l.zh}</div>
+        <div style="display:flex;gap:8px;">
+          <button onclick="playAudio('audio-player','${l.audio}');toast('🔊 正在播放真人原声...');" style="flex:1;text-align:center;padding:8px;border-radius:8px;background:var(--coral);color:#fff;font-size:12px;font-weight:600;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            听真人原声
+          </button>
+          <button onclick="toggleListenZh(${i})" style="flex:1;padding:8px;border-radius:8px;background:#fff;color:var(--ink-soft);font-size:12px;font-weight:600;border:1px solid var(--line);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span id="listen-toggle-label-${i}">显示中文</span>
+          </button>
+        </div>
+      </div>
+    `).join('')}
+  `;
+
+  // 影视片段跟读:跳转 B 站看原声
+  $('#movieList').innerHTML = `
+    <div class="section-title" style="margin-top:6px">
+      <h2 style="font-size:16px">影视片段跟读</h2>
+      <span class="tag">${movieList.length} 部 · 原声</span>
+    </div>
+    ${movieList.map(m=>`
+      <a href="${m.url}" target="_blank" rel="noopener" onclick="openExternal('${m.url}');return false;" class="card" style="display:block;padding:14px;margin-bottom:10px;text-decoration:none;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+          <div style="flex:1">
+            <div style="font-weight:600;font-size:14px;line-height:1.4;margin-bottom:4px;color:var(--ink)">${m.title}</div>
+            <div style="font-size:11px;color:var(--ink-soft);line-height:1.5">${m.desc}</div>
+            <div style="font-size:10px;color:var(--coral);margin-top:4px;font-weight:500">难度 ${m.level}</div>
+          </div>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </a>
+    `).join('')}
   `;
 }
 
-// 切换文章
-function tedSwitch(dir){
-  tedIdx = (tedIdx + dir + tedArticles.length) % tedArticles.length;
-  tedSentIdx = -1;
-  tedPlaying = false;
-  const p = document.getElementById('audio-player');
-  if(p){ p.pause(); p.src = ''; }
-  renderEnglish();
-  toast(dir > 0 ? '下一篇 TED ✨' : '上一篇 TED');
-}
-
-// 点击句子区域（非按钮）: 播放这句
-function tedClickSentence(i){
-  tedPlayOne(i);
-}
-
-// 播放单句
-function tedPlayOne(i){
-  const a = getTedArticle();
-  if(i < 0 || i >= a.sentences.length) return;
-
-  // 清除之前的高亮
-  document.querySelectorAll('.ted-sentence').forEach(el => el.classList.remove('active'));
-  const sentEl = document.getElementById('ted-sent-' + i);
-  if(sentEl) sentEl.classList.add('active');
-
-  tedSentIdx = i;
-  updateTedProgress(i, a.sentences.length);
-
-  // 更新播放标签
-  document.querySelectorAll('[id^="ted-play-label-"]').forEach(el => {
-    el.textContent = '朗读';
-  });
-  const label = document.getElementById('ted-play-label-' + i);
-  if(label) label.textContent = '▶ 播放中';
-
-  const audioSrc = `audio/ted/${a.id}_${i}.mp3`;
-  const p = document.getElementById('audio-player');
-
-  // 如果正在连续播放，标记
-  if(!tedPlaying){
-    // 单句播放模式
-    p.onended = () => {
-      if(sentEl) sentEl.classList.remove('active');
-      if(label) label.textContent = '朗读';
-    };
-  }
-
-  p.src = audioSrc;
-  p.play().catch(err => {
-    console.error('Audio play failed:', err);
-    toast('音频加载中，请稍候重试');
-  });
-
-  // 滚动到当前句子
-  if(sentEl){
-    setTimeout(() => {
-      sentEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 300);
-  }
-}
-
-// 连续播放全文
-function tedPlayAll(){
-  const a = getTedArticle();
-  if(tedPlaying){
-    // 停止
-    tedPlaying = false;
-    const p = document.getElementById('audio-player');
-    p.pause();
-    const btn = document.getElementById('tedPlayAll');
-    const lbl = document.getElementById('tedPlayAllLabel');
-    if(btn){ btn.classList.remove('playing'); }
-    if(lbl){ lbl.textContent = '连续朗读全文'; }
-    document.querySelectorAll('.ted-sentence').forEach(el => el.classList.remove('active'));
-    return;
-  }
-
-  // 开始连续播放
-  tedPlaying = true;
-  const btn = document.getElementById('tedPlayAll');
-  const lbl = document.getElementById('tedPlayAllLabel');
-  if(btn){ btn.classList.add('playing'); btn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg><span id="tedPlayAllLabel">停止朗读</span>'; }
-
-  const p = document.getElementById('audio-player');
-  let currentSent = 0;
-
-  const playNext = () => {
-    if(!tedPlaying || currentSent >= a.sentences.length){
-      tedPlaying = false;
-      if(btn){ btn.classList.remove('playing'); btn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span id="tedPlayAllLabel">连续朗读全文</span>'; }
-      document.querySelectorAll('.ted-sentence').forEach(el => el.classList.remove('active'));
-      tedSentIdx = -1;
-      updateTedProgress(0, a.sentences.length);
-      return;
-    }
-
-    // 高亮当前句
-    document.querySelectorAll('.ted-sentence').forEach(el => el.classList.remove('active'));
-    const sentEl = document.getElementById('ted-sent-' + currentSent);
-    if(sentEl){
-      sentEl.classList.add('active');
-      sentEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-    tedSentIdx = currentSent;
-    updateTedProgress(currentSent, a.sentences.length);
-
-    // 播放音频
-    p.src = `audio/ted/${a.id}_${currentSent}.mp3`;
-    p.onended = () => {
-      currentSent++;
-      setTimeout(playNext, 400); // 句子间停顿400ms
-    };
-    p.play().catch(err => {
-      console.error('Play failed:', err);
-      currentSent++;
-      setTimeout(playNext, 400);
-    });
-  };
-
-  playNext();
-}
-
-// 更新进度条
-function updateTedProgress(current, total){
-  const bar = document.getElementById('tedProgressBar');
-  if(bar){
-    const pct = total > 0 ? ((current + 1) / total) * 100 : 0;
-    bar.style.width = pct + '%';
-  }
-}
-
-// 切换中文显示
-function tedToggleZh(i){
-  const sentEl = document.getElementById('ted-sent-' + i);
-  const label = document.getElementById('ted-zh-label-' + i);
-  if(!sentEl) return;
-  if(sentEl.classList.contains('show-zh')){
-    sentEl.classList.remove('show-zh');
-    if(label) label.textContent = '中文';
+// 切换听力中文显示
+function toggleListenZh(i){
+  const zh = document.getElementById('listen-zh-'+i);
+  const label = document.getElementById('listen-toggle-label-'+i);
+  if(zh.style.display === 'none'){
+    zh.style.display = 'block';
+    label.textContent = '隐藏中文';
   } else {
-    sentEl.classList.add('show-zh');
-    if(label) label.textContent = '收起';
+    zh.style.display = 'none';
+    label.textContent = '显示中文';
+  }
+}
+
+// 切换情景对话中文显示
+function toggleSceneZh(i){
+  const zh = document.getElementById('scene-zh-'+i);
+  const label = document.getElementById('scene-toggle-label-'+i);
+  if(zh.style.display === 'none'){
+    zh.style.display = 'block';
+    label.textContent = '隐藏中文';
+  } else {
+    zh.style.display = 'none';
+    label.textContent = '显示中文';
   }
 }
 
@@ -1174,7 +993,14 @@ $$('#foodChips .chip').forEach(c=>{
   });
 });
 
-// TED 精读交互已通过 renderEnglish 中的 onclick 绑定
+// 英语换一句（点击 quote 区域空白处,不点链接）
+document.addEventListener('click', e=>{
+  if(e.target.closest('#dailyQuote') && !e.target.closest('a')){
+    quoteIdx++;
+    renderEnglish();
+    toast('换一句 ✨');
+  }
+});
 
 /* ============== 启动 ============== */
 renderHeader();
